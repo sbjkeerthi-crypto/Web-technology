@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopsy.in</title>
+<style>
+:root{--top:#131921;--sub:#232f3e;--bg:#e3e6e6;--orange:#febd69;--text:#fff}
+@media (prefers-color-scheme: dark){:root{--bg:#0f1111}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Amazon Ember",Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+.top{background:var(--top);display:flex;align-items:center;gap:6px;padding:8px 12px;height:60px}
+.top>*{padding:6px 8px;border:1px solid transparent;border-radius:2px;white-space:nowrap}
+.top>a:hover{border-color:#fff}
+.logo{display:flex;flex-direction:column;align-items:flex-start;padding-top:4px}
+.logo b{font-size:27px;letter-spacing:-1px;line-height:24px}
+.logo b i{font-style:normal;font-size:12px;font-weight:700;letter-spacing:0;vertical-align:-1px;color:#ddd}
+.logo svg{width:70px;height:12px;margin-top:-3px}
+.loc{display:flex;align-items:flex-end;gap:3px;font-size:12px;line-height:15px}
+.loc small{display:block;color:#ccc;font-size:12px}
+.loc strong{font-size:14px}
+.loc svg{width:16px;height:20px;margin-bottom:3px}
+.search{flex:1;display:flex;padding:0!important;height:40px;border-radius:6px!important;overflow:hidden;min-width:120px}
+.search .all{background:#e6e6e6;color:#555;font-size:12px;padding:0 10px;display:flex;align-items:center;border-right:1px solid #cdcdcd}
+.search input{flex:1;border:0;outline:0;padding:0 10px;font-size:15px;min-width:0}
+.search button{width:46px;border:0;background:var(--orange);cursor:pointer;display:grid;place-items:center}
+.search button:hover{background:#f3a847}
+.lang{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px}
+.lang svg{width:22px;height:15px}
+.two{font-size:12px;line-height:15px}
+.two strong{display:block;font-size:14px}
+.cart{display:flex;align-items:flex-end;gap:2px;font-weight:700;font-size:14px;position:relative}
+.cart svg{width:38px;height:34px}
+.cart span{position:absolute;left:21px;top:0;color:var(--orange);font-size:16px}
+.sub{background:var(--sub);display:flex;align-items:center;gap:4px;padding:0 10px;height:40px;font-size:14px;overflow-x:auto}
+.sub a{padding:6px 9px;border:1px solid transparent;border-radius:2px;white-space:nowrap}
+.sub a:hover{border-color:#fff}
+.sub .menu{display:flex;align-items:center;gap:5px;font-weight:700}
+.cards{display:flex;justify-content:center;gap:12px;padding:16px 12px;max-width:1500px;margin:0 auto;overflow-x:auto}
+.card{flex:0 0 252px;height:406px;border-radius:14px;position:relative;overflow:hidden;color:#fff;padding:14px 12px}
+.c1{background:#e8590c}
+.c2{background:#b3202f}
+.c3{background:#8b1a6b}
+.c4{background:#0d5c3b}
+.card h2{font-size:25px;line-height:1.1;font-weight:800}
+.card p{font-size:14px;margin-top:4px}
+.perks{display:flex;gap:8px;font-size:11px;margin-top:10px;line-height:1.2}
+.perks span+span{border-left:1px solid #fff9;padding-left:8px}
+.art{position:absolute;left:0;right:0;top:130px;height:170px;display:grid;place-items:center;font-size:96px}
+.c1 .big{position:absolute;top:100px;left:0;right:0;text-align:center}
+.big b{display:block;font-size:44px;line-height:1;color:#f9d36e;font-weight:800}
+.big small{display:block;margin-top:14px;font-size:14px}
+.badge{margin:0 auto 12px;width:116px;height:70px;border-radius:50% 50% 12px 12px;background:#7a1f5c;border:3px solid #f9d36e;display:grid;place-items:center;font-size:12px;font-weight:700;color:#f9d36e;line-height:1.1}
+.foot{position:absolute;left:8px;right:8px;bottom:10px}
+.fest{background:#8c1d5f;border:1px solid #f9d36e;border-radius:6px;text-align:center;font-size:11px;font-weight:700;padding:4px 2px;margin-bottom:3px}
+.fest em{font-style:normal;color:#f9d36e}
+.cash{background:#e3361d;font-size:10px;text-align:center;font-weight:700;padding:3px;border:1px solid #f9d36e;margin-bottom:3px}
+.bank{background:#fff;color:#222;border-radius:3px;display:flex;align-items:center;gap:6px;padding:3px 6px;font-size:10px;line-height:1.1}
+.bank b{color:#004c8f;font-size:11px;border:1px solid #004c8f;padding:1px 3px}
+.bank strong{font-size:12px}
+.tc{font-size:9px;text-align:right;margin-top:3px;opacity:.85}
+@media (max-width:900px){.loc,.lang,.two{display:none}.cards{justify-content:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#">
+    <b>Shopsy<i>.in</i></b>
+    <svg viewBox="0 0 70 12"><path d="M3 3 Q35 14 62 3" stroke="#ff9900" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M58 1 L65 3 L60 8" stroke="#ff9900" stroke-width="2.4" fill="none"/></svg>
+  </a>
+  <a class="loc" href="#">
+    <svg viewBox="0 0 16 20"><path d="M8 1a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6z" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="8" cy="7" r="2" fill="#fff"/></svg>
+    <span><small>Delivering to Guntur 522213</small><strong>Update location</strong></span>
+  </a>
+  <div class="search">
+    <span class="all">All &#9662;</span>
+    <input type="text" placeholder="Search shopsy.in" aria-label="Search Amazon.in">
+    <button aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></button>
+  </div>
+  <a class="lang" href="#">
+    <svg viewBox="0 0 22 15"><rect width="22" height="5" fill="#ff9933"/><rect y="5" width="22" height="5" fill="#fff"/><rect y="10" width="22" height="5" fill="#138808"/><circle cx="11" cy="7.5" r="1.8" fill="none" stroke="#000080" stroke-width=".7"/></svg>
+    EN <small>&#9662;</small>
+  </a>
+  <a class="two" href="#">Hello, sign in<strong>Account &amp; Lists &#9662;</strong></a>
+  <a class="two" href="#">Returns<strong>&amp; Orders</strong></a>
+  <a class="cart" href="#">
+    <svg viewBox="0 0 38 34" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6l4 18h18l4-13H10"/><circle cx="14" cy="29" r="2" fill="#fff"/><circle cx="28" cy="29" r="2" fill="#fff"/></svg>
+    <span>0</span>Cart
+  </a>
+</header>
+
+<nav class="sub">
+  <a class="menu" href="#"><svg width="18" height="14" viewBox="0 0 18 14" stroke="#fff" stroke-width="2"><path d="M0 1h18M0 7h18M0 13h18"/></svg>All</a>
+  <a href="https://www.primevideo.com/offers/nonprimehomepage/ref_=nav_dvm_crs_in_s_gw_bt_dk_p_hamburgr?ref_=avod_desktop_topnav">Prime Video</a>
+  <a href="https://www.amazon.in/b/32702023031?node=32702023031&ld=AZINSOANavDesktop_T3&ref_=nav_cs_sell_T3">Sell</a>
+  <a href="https://www.amazon.in/gp/bestsellers/?ref_=nav_cs_bestsellers">Bestsellers</a>
+  <a href="https://www.amazon.in/events/greatindianfestival?ref_=nav_cs_gb">Today's Deals</a>
+  <a href="https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles">Mobiles</a>
+  <a href="https://www.amazon.in/amazonpay/home?ref_=nav_cs_apay">Amazon pay</a>
+  <a href="https://www.amazon.in/gp/new-releases/?ref_=nav_cs_newreleases">New releases</a>
+</nav>
+
+<main class="cards">
+  <article class="card c1">
+    <div class="big">
+      <div class="badge">Great<br>Indian<br>Festival</div>
+      <b>Free<br>Delivery</b><small>on first 3 orders*</small>
+    </div>
+    <div class="foot">
+      <div class="bank"><b>HDFC</b><strong>10% Instant Discount</strong></div>
+      <div class="tc">*T&amp;C apply</div>
+    </div>
+  </article>
+
+  <article class="card c2">
+    <h2>Women's fashion under ₹499</h2>
+    <div class="perks"><span>Free<br>Delivery</span><span>Easy<br>Returns</span></div>
+    <div class="art">👗</div>
+    <div class="foot">
+      <div class="fest">Last Chance Deals<br>Great Indian Festival | <em>Diwali Edition</em></div>
+      <div class="cash">35% cashback up to ₹150 on your first order*</div>
+      <div class="bank"><b>HDFC</b><strong>10% Instant Discount*</strong></div>
+      <div class="tc">*T&amp;C apply</div>
+    </div>
+  </article>
+
+  <article class="card c3">
+    <h2>Under ₹999</h2>
+    <p>Gun massagers</p>
+    <div class="perks"><span>Free Delivery<br>On first 3 orders*</span><span>Wide<br>Selection</span></div>
+    <div class="art">💆</div>
+    <div class="foot">
+      <div class="fest">Last Chance Deals<br>Great Indian Festival | <em>Diwali Edition</em></div>
+      <div class="cash">35% cashback up to ₹150 on your first order*</div>
+      <div class="bank"><b>HDFC</b><strong>10% Instant Discount*</strong></div>
+      <div class="tc">*T&amp;C apply</div>
+    </div>
+  </article>
+
+  <article class="card c4">
+    <h2>Under ₹499 Home glow-up</h2>
+    <div class="perks"><span>Free Delivery<br>On first 3 orders*</span><span>Easy<br>Returns</span></div>
+    <div class="art">🧺</div>
+    <div class="foot">
+      <div class="fest">Last Chance Deals<br>Great Indian Festival | <em>Diwali Edition</em></div>
+      <div class="cash">35% cashback up to ₹150 on your first order*</div>
+      <div class="bank"><b>HDFC</b><strong>10% Instant Discount*</strong></div>
+      <div class="tc">*T&amp;C apply</div>
+    </div>
+  </article>
+</main>
+
+</body>
+</html>
